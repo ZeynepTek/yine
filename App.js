@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { ScrollView, StyleSheet,Image,  Text, View } from 'react-native';
+import { ScrollView, StyleSheet,Image,  Text, View, Button} from 'react-native';
 
 
 export default function App() {
@@ -10,11 +10,17 @@ export default function App() {
          <Image source={require('./images/yine-logo.png')} 
            style={{width: 64, height: 64}}
           />
-        <Text style = { styles.greenBig }>Yine Hoşgeldin !</Text>
+        <Text style = { styles.greenBig }>Yine !</Text>
         <StatusBar style="auto" />
         <ScrollView>
           <Text style = { styles.blackNormal}> Yine hoşgeldin, bu bir deneme yazısıdır !</Text>
-      </ScrollView>
+          <Button
+            onPress={() => {
+            alert('You tapped the button!');
+            }}
+            title="Press Me"
+          />
+        </ScrollView>
       </View>
 
 
