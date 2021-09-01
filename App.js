@@ -1,39 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { ScrollView, StyleSheet,Image,  Text, View, Button} from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
+import { ScrollView, StyleSheet, Text, View} from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
-export default function App() {
+function HomeScreen() {
   return (
-    
-      <View style={styles.container}>
-         <Image source={require('./images/yine-logo.png')} 
-           style={{width: 64, height: 64}}
-          />
-        <Text style = { styles.greenBig }>Yine !</Text>
-        <StatusBar style="auto" />
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name = "Home" component =  {HomeScreen} />
         <ScrollView>
-          <Text style = { styles.blackNormal}> Yine hoşgeldin, bu bir deneme yazısıdır !</Text>
-          <View style={styles.buttonContainer}>
-            <Button
-            onPress={this._onPressButton}
-            title="Press Me"
-            />
-            <Button
-            onPress={() => {
-            alert('You tapped the button!');
-            }}
-            title="Press Me"
-            color = "black"
-            />
-          </View>
-        </ScrollView>
-      </View>
-
-
+        <Text style = { styles.blackNormal}> Yine hoşgeldin, bu bir deneme yazısıdır !</Text>
+      </ScrollView>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <View style={styles.container}>
+    <Text style = { styles.greenBig }>Yine !</Text>
+    <StatusBar style="auto" />
+    </View>
+  );
+}
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
@@ -54,10 +49,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     margin: 20
-  },
-  alternativeLayoutButtonContainer: {
-    margin: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between'
   }
+ 
 });

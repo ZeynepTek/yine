@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Text, TextInput, View , StyleSheet, Button} from 'react-native';
 
-const Login = () => {
+const login = () => {
     return (
         <View>
             <Text> Kayıtlı mısın ?</Text>
@@ -22,4 +22,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default login;
