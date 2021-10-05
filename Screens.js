@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Button, Image } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import { color } from "react-native-reanimated";
 
 import { AuthContext } from "./context";
 
@@ -16,12 +17,12 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     marginVertical: 10,
     borderRadius: 5,
-    color: "black",
-    fontSize: 30
+    color: "white",
+    fontSize: 40
   },
   inputView:{
     width:"80%",
-    backgroundColor:"#465881",
+    backgroundColor:"white",
     borderRadius:25,
     height:50,
     marginBottom:20,
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
   },
   inputText:{
     height:50,
-    color:"white"
+    color:"black"
   },
   text: {
     height: 50,
@@ -39,13 +40,13 @@ const styles = StyleSheet.create({
   },
   loginBtn:{
     width:"80%",
-    backgroundColor:"#fb5b5a",
     borderRadius:25,
     height:50,
     alignItems:"center",
     justifyContent:"center",
     marginTop:40,
-    marginBottom:10
+    marginBottom:10,
+    color: "white"
   },
   Image: {
     flex: 1,
@@ -69,13 +70,13 @@ state={
 export const Home = ({ navigation }) => (
   <ScreenContainer>
     <Text>Ana Ekran ! </Text>
-    <Button
+    <Button style={{height: 50, color: "white", fontSize:20}}
       title="Geçen hafta ne oldu?"
       onPress={() =>
         navigation.push("Details", { name: "yine farklı " })
       }
     />
-    <Button
+    <Button style={{height: 50, color: "white", fontSize:20}}
       title="Bu hafta neler oluyor?"
       onPress={() =>
         navigation.push("thisWeek", { name: "yine farklı" })
@@ -101,11 +102,10 @@ export const thisWeek = ({ route }) => (
 export const Search = ({ navigation }) => (
   <ScreenContainer>
     <Text>Search Screen</Text>
-    <Button title="Search 2" onPress={() => navigation.push("Search2")} />
-    <Button
-      title="React Native School"
-      onPress={() => {
-        navigation.navigate("Home", {
+    <Button style={{height: 50, color: "white", fontSize:20}}  title="Search 2" onPress={() => navigation.push("Search2")} />
+    <Button style={{height: 50, color: "white", fontSize:20}}  title="React Native School" onPress={() => 
+    {
+      navigation.navigate("Home", {
           screen: "Details", 
           params: { name: "React Native School" }
         });
@@ -126,8 +126,8 @@ export const Profile = ({ navigation }) => {
   return (
     <ScreenContainer>
       <Text>Profile Screen</Text>
-      <Button title="Drawer" onPress={() => navigation.toggleDrawer()} />
-      <Button title="Sign Out" onPress={() => signOut()} />
+      <Button style={{height: 50, color: "white", fontSize:20}}  title="Drawer" onPress={() => navigation.toggleDrawer()} />
+      <Button  style={{height: 50, color: "white", fontSize:20}} title="Sign Out" onPress={() => signOut()} />
     </ScreenContainer>
   );
 };
@@ -152,12 +152,10 @@ export const SignIn = ({ navigation }) => {
         marginBottom: 12,
         marginTop: 12}}
       />
-      <Text style= {{fontStyle : "italic", fontWeight: "bold", fontSize: 30}}>Giriş Sayfası</Text>
-      <Button title="Giriş Yap !" onPress={() => signIn()} />
+      <Text style= {{fontStyle : "italic", fontWeight: "bold", fontSize: 30, color: "white", alignContent:"center"}}>Giriş Sayfası</Text>
+      <Button style={{height: 50, color: "white", fontSize:20}} title="Giriş Yap !" onPress={() => signIn()} />
       <Text style= {{fontSize: 20, color : "white"}}> Henüz bir hesabın yok mu ? </Text>
-      <Button
-        title="Hesap Oluştur ! "
-        onPress={() => navigation.push("CreateAccount")}
+      <Button style={{height: 50, color: "white", fontSize:20}} title="Hesap Oluştur ! " onPress={() => navigation.push("CreateAccount")}
       />
     </ScreenContainer>
   );
@@ -169,7 +167,6 @@ export const CreateAccount = () => {
 
   return (
     <ScreenContainer>
-      <Text style = {{fontSize: 25, fontStyle: "italic" }}>Hesap Oluştur ! </Text>
       <View style={styles.inputView}>
           <TextInput  
             style={styles.inputText}
@@ -194,7 +191,7 @@ export const CreateAccount = () => {
 
       </View>
         
-      <Button title="Kaydol !" onPress={() => signUp()} />
+      <Button style={{height: 50, color: "white", fontSize:20}} title="Kaydol !" onPress={() => signUp()} />
     </ScreenContainer>
   );
 };
