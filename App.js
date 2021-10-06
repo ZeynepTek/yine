@@ -27,9 +27,9 @@ const AuthStackScreen = () => (
       options={{ title: "Giriş Yap" }}
     />
     <AuthStack.Screen
-      name="CreateAccount"
       component={CreateAccount}
-      options={{ title: "Hesap Oluştur" }}
+      name="CreateAccount"
+      options={{ title: "  " }}
     />
   </AuthStack.Navigator>
 );

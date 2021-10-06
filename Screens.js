@@ -1,8 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, Button, Image } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import { View, Text, StyleSheet, Button, Image } from "react-native";
 import { color } from "react-native-reanimated";
-
 import { AuthContext } from "./context";
 
 const styles = StyleSheet.create({
@@ -11,6 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#8fbc8f',
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   button: {
     paddingHorizontal: 20,
@@ -20,23 +20,26 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 40
   },
-  inputView:{
+
+  inputText:{
+    height:50,
+    color:"black",
     width:"80%",
     backgroundColor:"white",
     borderRadius:25,
     height:50,
     marginBottom:20,
+    padding:20,
+    alignContent:"center",
     justifyContent:"center",
-    padding:20
-  },
-  inputText:{
-    height:50,
-    color:"black"
   },
   text: {
     height: 50,
     color: "white",
-    fontSize:20
+    fontSize:30,
+    marginBottom:20,
+    marginTop:50
+
   },
   loginBtn:{
     width:"80%",
@@ -50,9 +53,25 @@ const styles = StyleSheet.create({
   },
   Image: {
     flex: 1,
-    width: 50,
-    height: 50,
-    resizeMode: 'contain'
+    resizeMode: 'contain',
+    width: 100,
+    height: 100,
+    marginBottom:20,
+
+  },
+  homeScreen: {
+    flex:1,
+    fontStyle : "italic",
+    fontWeight: "bold", 
+    fontSize: 20, 
+    color: "white", 
+    alignContent:"center",
+  },
+  loginImage: {
+    resizeMode: 'contain',
+    width: 100,
+    height: 100,
+    marginBottom:20,
   }
 });
 
@@ -144,19 +163,29 @@ export const SignIn = ({ navigation }) => {
 
   return (
     <ScreenContainer>
-      <Image source={require('./images/yinelogo.png') } 
-      style={{
-        width: 100,
-        height: 100,
-        marginRight: 10,
-        marginBottom: 12,
-        marginTop: 12}}
+      <Image style ={styles.Image} source={require('./images/yinelogo.png') } />
+
+      
+     < TextInput  
+            style={styles.inputText}
+            placeholder="e-mail" 
+            placeholderTextColor="black"
+            onChangeText={text => this.setState({name:text})}
       />
-      <Text style= {{fontStyle : "italic", fontWeight: "bold", fontSize: 30, color: "white", alignContent:"center"}}>Giriş Sayfası</Text>
-      <Button style={{height: 50, color: "white", fontSize:20}} title="Giriş Yap !" onPress={() => signIn()} />
-      <Text style= {{fontSize: 20, color : "white"}}> Henüz bir hesabın yok mu ? </Text>
-      <Button style={{height: 50, color: "white", fontSize:20}} title="Hesap Oluştur ! " onPress={() => navigation.push("CreateAccount")}
-      />
+
+      <TextInput  
+            style={styles.inputText}
+            placeholder="Şifre" 
+            placeholderTextColor="black"
+            onChangeText={text => this.setState({password:text})}
+      />     
+
+      <Button title="Giriş Yap " onPress={() => signIn()} />
+
+      <Text style = {styles.homeScreen}> Henüz bir hesabın yok mu ? </Text>
+
+      <Button title="Hesap Oluştur " onPress={() => navigation.push("CreateAccount")}/>
+
     </ScreenContainer>
   );
 };
@@ -167,7 +196,8 @@ export const CreateAccount = () => {
 
   return (
     <ScreenContainer>
-      <View style={styles.inputView}>
+      <Image style ={styles.loginImage} source={require('./images/chess-piece.png') } />
+      <Text style = {styles.text}> HESAP OLUŞTUR </Text>
           <TextInput  
             style={styles.inputText}
             placeholder="Ad" 
@@ -184,14 +214,20 @@ export const CreateAccount = () => {
 
           <TextInput  
             style={styles.inputText}
+            placeholder="Telefon" 
+            placeholderTextColor="black"
+            onChangeText={text => this.setState({telNo:text})}
+          />
+
+          <TextInput  
+            style={styles.inputText}
             placeholder="Email" 
             placeholderTextColor="black"
             onChangeText={text => this.setState({email:text})}
           />  
 
-      </View>
         
-      <Button style={{height: 50, color: "white", fontSize:20}} title="Kaydol !" onPress={() => signUp()} />
+      <Button styles = {styles.loginBtn} title="Kaydol !" onPress={() => signUp()} />
     </ScreenContainer>
   );
 };
