@@ -75,6 +75,8 @@ const styles = StyleSheet.create({
   }
 });
 
+//sayfaları böl 
+
 const ScreenContainer = ({ children }) => (
   <View style={styles.container}>{children}</View>
 );
@@ -86,6 +88,7 @@ state={
   password:""
 }
 
+//buraya hiç dokunmadım, düzenle
 export const Home = ({ navigation }) => (
   <ScreenContainer>
     <Text>Ana Ekran ! </Text>
@@ -151,6 +154,8 @@ export const Profile = ({ navigation }) => {
   );
 };
 
+
+//buraya bir animasyon ekle 
 export const Splash = () => (
   <ScreenContainer>
     <Text>Yükleniyor...</Text>
@@ -161,11 +166,13 @@ export const SignIn = ({ navigation }) => {
   const { signIn } = React.useContext(AuthContext);
   
 
+//burayı yukarı kaldır
+
   return (
     <ScreenContainer>
       <Image style ={styles.Image} source={require('./images/yinelogo.png') } />
 
-      
+
      < TextInput  
             style={styles.inputText}
             placeholder="e-mail" 
@@ -190,6 +197,7 @@ export const SignIn = ({ navigation }) => {
   );
 };
 
+//burası okey sadece başka klasöre taşı
 
 export const CreateAccount = () => {
   const { signUp } = React.useContext(AuthContext);

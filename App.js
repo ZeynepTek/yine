@@ -110,6 +110,8 @@ const RootStackScreen = ({ userToken }) => (
   </RootStack.Navigator>
 );
 
+//bu kısmı tam olarak halletmedim neler oluyor daha fazla kontrol et
+//buraya auth yap!
 export default () => {
   const [isLoading, setIsLoading] = React.useState(true);
   const [userToken, setUserToken] = React.useState(null);
