@@ -72,10 +72,31 @@ const ProfileStackScreen = () => (
   </ProfileStack.Navigator>
 );
 
+//
 const TabsScreen = () => (
   <Tabs.Navigator>
-    <Tabs.Screen name="Yine!" component={HomeStackScreen} />
-    <Tabs.Screen name="Search" component={SearchStackScreen} />
+    screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Yine') {
+              iconName = focused
+                ? 'anasayfa'
+                : 'anasayfaBlack';
+            } else if (route.name === 'Profil') {
+              iconName = focused 
+              ? 'user' 
+              : 'userBlack';
+            }
+
+            // You can return any component that you like here!
+            return <Ionicons name={focused} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: 'tomato',
+          tabBarInactiveTintColor: 'gray',
+        })}
+    <Tabs.Screen name="Yine" component={HomeStackScreen} />
+    <Tabs.Screen name="Profil" component={SearchStackScreen} />
   </Tabs.Navigator>
 );
 

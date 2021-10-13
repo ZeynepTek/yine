@@ -1,4 +1,5 @@
 import React from "react";
+import AnimatedSplash from "react-native-animated-splash-screen";
 import { TextInput } from "react-native-gesture-handler";
 import { View, Text, StyleSheet, Button, Image } from "react-native";
 import { color } from "react-native-reanimated";
@@ -54,9 +55,16 @@ const styles = StyleSheet.create({
   Image: {
     flex: 1,
     resizeMode: 'contain',
-    width: 100,
-    height: 100,
-    marginBottom:20,
+    borderRadius:30,
+    marginTop: 40,
+    marginBottom:30,
+    padding:20,
+    backgroundColor:"white",
+    width: 150,
+    height: 400,
+    overflow: 'hidden',
+    alignItems: 'center', 
+    justifyContent: 'center'
 
   },
   homeScreen: {
@@ -66,6 +74,8 @@ const styles = StyleSheet.create({
     fontSize: 20, 
     color: "white", 
     alignContent:"center",
+    marginTop:20, 
+    marginBottom:20
   },
   loginImage: {
     resizeMode: 'contain',
@@ -158,7 +168,15 @@ export const Profile = ({ navigation }) => {
 //buraya bir animasyon ekle 
 export const Splash = () => (
   <ScreenContainer>
-    <Text>Yükleniyor...</Text>
+     <AnimatedSplash
+        translucent={true}
+        isLoaded={this.state.isLoaded}
+        logoImage={require("./images/yinelogo.png")}
+        backgroundColor={"#262626"}
+        logoHeight={150}
+        logoWidth={150}
+      >
+      </AnimatedSplash>
   </ScreenContainer>
 );
 
@@ -172,10 +190,9 @@ export const SignIn = ({ navigation }) => {
     <ScreenContainer>
       <Image style ={styles.Image} source={require('./images/yinelogo.png') } />
 
-
      < TextInput  
             style={styles.inputText}
-            placeholder="e-mail" 
+            placeholder="E-mail" 
             placeholderTextColor="black"
             onChangeText={text => this.setState({name:text})}
       />
@@ -191,7 +208,7 @@ export const SignIn = ({ navigation }) => {
 
       <Text style = {styles.homeScreen}> Henüz bir hesabın yok mu ? </Text>
 
-      <Button title="Hesap Oluştur " onPress={() => navigation.push("CreateAccount")}/>
+      <Button title="Hesap Oluştur " onPress={() => navigation.push('CreateAccount')}/>
 
     </ScreenContainer>
   );
