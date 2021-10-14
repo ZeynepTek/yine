@@ -81,8 +81,8 @@ const TabsScreen = () => (
 
             if (route.name === 'Yine') {
               iconName = focused
-                ? 'anasayfa'
-                : 'anasayfaBlack';
+                ? IMAGE.ANASAYFA
+                : IMAGE.ANASAYFABLACK;
             } else if (route.name === 'Profil') {
               iconName = focused 
               ? 'user' 
@@ -90,7 +90,7 @@ const TabsScreen = () => (
             }
 
             // You can return any component that you like here!
-            return <Ionicons name={focused} size={size} color={color} />;
+            return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
