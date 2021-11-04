@@ -165,7 +165,6 @@ export const Profile = ({ navigation }) => {
 };
 
 
-//buraya bir animasyon ekle 
 export const Splash = () => (
   <ScreenContainer>
      <AnimatedSplash
